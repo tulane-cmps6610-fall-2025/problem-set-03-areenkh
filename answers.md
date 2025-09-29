@@ -49,12 +49,14 @@ dedup(A) =
 combine(L, R) =
   L ++ ⟨ R[j] : 0 ≤ j < |R| ,not member(L, R[j]) ⟩
 
+```
 multi_dedup(A) =
   let 
     B = ⟨dedup(A[i]):0 ≤ i < |A|⟩
   in  
     reduce(combine,⟨ ⟩, B)
   end
+```
 
 
 Work of member(out,y) is O(|out|).
