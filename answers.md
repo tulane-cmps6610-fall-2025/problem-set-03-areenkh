@@ -1,7 +1,7 @@
 # CMPS 6610 Problem Set 03
 ## Answers
 
-**Name:**_________________________
+**Name:** Areen Khalaila
 
 
 Place all written answers from `problemset-03.md` here for easier grading.
@@ -61,12 +61,13 @@ Span of member(out,y) is O(log|out|)
 
 In the worst case (all distinct), any order-preserving dedup built from iterate + member does
 
-$sum_{k=1}^{N} O(k) = O(n^2)$ work and 
+$\sum_{k=1}^{N} O(k) = O(n^2)$ work and 
 
-$sum_{k=1}^{N} O(\log k) = O(n \log n)$ span
+$\sum_{k=1}^{N} O(\log k) = O(n \log n)$ span
 
 The worst-case asymptotics remain the same as Part 2a applied to a length N list:
 Work: $O(n^2)$
+
 Span: $O(n\log n)$
 
 - **2c.**
@@ -74,14 +75,16 @@ Yes, we used iterate to process left-to-right and preserve first-appearance orde
 
 - **3b.**
 Work: $W(n)=W(n-1)+1 -> O(n)$
+
 Span: $S(n)=S(n-1)+1 -> O(n)$
 
 - **3d.**
 
-$W_map(n) = O(n)$
+$W_{map}(n) = O(n)$
+
 $S_map(n) = O(n)$
 
-$W_scan(n) = W_(scan)(n/2)+O(n) -> O(n)$
+$W_scan(n) = W_scan(n/2)+O(n) -> O(n)$
 $S_scan(n) = S_scan(n/2)+O(1) -> O(\log n)$
 
 $W_reduce(n) = 2W_reduce(n/2)+O(1) -> O(n)$
