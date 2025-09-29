@@ -9,8 +9,10 @@ import math
 
 # search an unordered list L for a key x using iterate
 def isearch(L, x):
-    ###TODO
-    ###
+    def search(found, y):
+        return found or (y == x)
+    return iterate(search, False, L)
+
 
 def test_isearch():
     assert isearch([1, 3, 5, 4, 2, 9, 7], 2) == (2 in [1, 3, 5, 4, 2, 9, 7])
@@ -28,8 +30,9 @@ def iterate(f, x, a):
 
 # search an unordered list L for a key x using reduce
 def rsearch(L, x):
-    ###TODO
-    ###
+    flags = [ (y == x) for y in L ]      
+    def compare(a, b): return a or b         
+    return reduce(compare, False, flags)
 
 def test_rsearch():
     assert rsearch([1, 3, 5, 4, 2, 9, 7], 2) == (2 in [1, 3, 5, 4, 2, 9, 7])
@@ -59,8 +62,6 @@ def ureduce(f, id_, a):
         # can call these in parallel
         return f(reduce(f, id_, a[:len(a)//3]),
                  reduce(f, id_, a[len(a)//3:]))
-
-
 
 
 ### PART 3: PARENTHESES MATCHING
@@ -99,8 +100,14 @@ def parens_update(current_output, next_input):
     Returns:
       the updated value of `current_output`
     """
-    ###TODO
-    ###
+    if current_output < 0:
+        return current_output
+    if next_input == '(':
+        return current_output + 1
+    elif next_input == ')':
+        return current_output - 1
+    else:
+        return current_output 
 
 
 def test_parens_match_iterative():
@@ -131,10 +138,14 @@ def parens_match_scan(mylist):
     True
     >>>parens_match_scan(['('])
     False
-    
-    """
-    ###TODO
-    ###
+    """ 
+    nums= list(map(paren_map, mylist))
+    prefix, total = scan(plus, 0, nums)
+    min_prefix=reduce(min_f, 0, prefix)
+    return (min_prefix>=0) and (total ==0)
+
+def plus(x, y):
+    return x + y
 
 def scan(f, id_, a):
     """
@@ -213,12 +224,25 @@ def parens_match_dc_helper(mylist):
     """
     ###TODO
     # base cases
+    if len(mylist) ==0:
+        return (0,0)
     
     # recursive case
     # - first solve subproblems
-    
+    if len(mylist)  == 1:
+        if mylist[0]=='(':
+            return (0, 1)  # if one unmatched left
+        elif mylist[0]==')':
+            return (1, 0)  # if one unmatched right
+        else:
+            return (0, 0) # non-paren
+        
+    mid = len(mylist)// 2
+    R1, L1 = parens_match_dc_helper(mylist[:mid])
+    R2, L2 = parens_match_dc_helper(mylist[mid:])
+    m = min(L1, R2) 
     # - then compute the solution (R,L) using these solutions, in constant time.
-    
+    return (R1 + (R2 - m), (L1 - m) + L2)
     ###
     
 
