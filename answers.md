@@ -24,6 +24,7 @@ Work is $O(n)$ and span is $O(log n)$
 - **1e.**
 
 Work is $W(n)= W(n/3)+W(2n/3)+O(1)$ Therefore, it's $O(n)$
+
 Span is $S(n)= S(2n/3)+O(1)$ Therefore, it's $O(\log n)$
 
 - **2a.**
@@ -32,13 +33,18 @@ OR that takes two booleans a and b and returns their logical OR
 OR(a, b) = a ∨ b
 
 member(S, y) =
+
   reduce(OR,false, ⟨ S[i] = y: 0 ≤ i < |S| ⟩)
 
 dedup(A) =
+
   iterate(F,⟨ ⟩, A)
+
 where
   F(out, y) =
+
     if member(out, y) then out
+    
     else out ++ ⟨y⟩
 
 - **2b.**
