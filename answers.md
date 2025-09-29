@@ -66,6 +66,7 @@ $\sum_{k=1}^{N} O(k) = O(n^2)$ work and
 $\sum_{k=1}^{N} O(\log k) = O(n \log n)$ span
 
 The worst-case asymptotics remain the same as Part 2a applied to a length N list:
+
 Work: $O(n^2)$
 
 Span: $O(n\log n)$
@@ -74,31 +75,38 @@ Span: $O(n\log n)$
 Yes, we used iterate to process left-to-right and preserve first-appearance order. We also used reduce(OR) to implement member(out, y) in parallel.
 
 - **3b.**
-Work: $W(n)=W(n-1)+1 -> O(n)$
+Work: $W(n)=W(n-1)+1 \Rightarrow O(n)$
 
-Span: $S(n)=S(n-1)+1 -> O(n)$
+Span: $S(n)=S(n-1)+1 \Rightarrow O(n)$
 
 - **3d.**
 
 $W_{map}(n) = O(n)$
 
-$S_map(n) = O(n)$
+$S_{map}(n) = O(n)$
 
-$W_scan(n) = W_scan(n/2)+O(n) -> O(n)$
-$S_scan(n) = S_scan(n/2)+O(1) -> O(\log n)$
 
-$W_reduce(n) = 2W_reduce(n/2)+O(1) -> O(n)$
-$S_reduce(n) = S_reduce(n/2)+O(1) -> O(\log n)$
+$W_{scan}(n) = W_{scan}(n/2)+O(n) \Rightarrow O(n)$
+
+$S_{scan}(n) = S_{scan}(n/2)+O(1) \Rightarrow O(\log n)$
+
+
+$W_{reduce}(n) = 2W_{reduce}(n/2)+O(1) \Rightarrow O(n)$
+
+$S_{reduce}(n) = S_{reduce}(n/2)+O(1) \Rightarrow O(\log n)$
 
 Whole algorith: 
+
 $W(n)=O(n)$
+
 $S(\log n)$
 
 
 - **3f.**
 
-Work: $W(n) = 2W(n/2)+O(1) -> O(n)$
-Span: $S(n) = S(n)+O(1) -> O(\log n)$
+Work: $W(n) = 2W(n/2)+O(1) \Rightarrow O(n)$
+
+Span: $S(n) = S(n)+O(1) \Rightarrow O(\log n)$
 
 
 
