@@ -54,11 +54,15 @@ multi_dedup(A) =
     reduce(combine,⟨ ⟩, B)
   end
 
+
 Work of member(out,y) is O(|out|).
+
 Span of member(out,y) is O(log|out|)
 
 In the worst case (all distinct), any order-preserving dedup built from iterate + member does
+
 $sum_{k=1}^{N} O(k) = O(n^2)$ work and 
+
 $sum_{k=1}^{N} O(\log k) = O(n \log n)$ span
 
 The worst-case asymptotics remain the same as Part 2a applied to a length N list:
@@ -77,7 +81,7 @@ Span: $S(n)=S(n-1)+1 -> O(n)$
 $W_map(n) = O(n)$
 $S_map(n) = O(n)$
 
-$W_scan(n) = W_scan(n/2)+O(n) -> O(n)$
+$W_scan(n) = W_(scan)(n/2)+O(n) -> O(n)$
 $S_scan(n) = S_scan(n/2)+O(1) -> O(\log n)$
 
 $W_reduce(n) = 2W_reduce(n/2)+O(1) -> O(n)$
