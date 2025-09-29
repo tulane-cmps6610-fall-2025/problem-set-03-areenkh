@@ -28,6 +28,7 @@ Work is $W(n)= W(n/3)+W(2n/3)+O(1)$ Therefore, it's $O(n)$
 Span is $S(n)= S(2n/3)+O(1)$ Therefore, it's $O(\log n)$
 
 - **2a.**
+
 OR takes two booleans a and b and returns their logical OR
 
 OR(a, b) = a ∨ b
@@ -44,6 +45,7 @@ dedup(A) =
         out ++ ⟨y⟩
 
 - **2b.**
+
 combine(L, R) =
   L ++ ⟨ R[j] : 0 ≤ j < |R| ,not member(L, R[j]) ⟩
 
@@ -72,9 +74,11 @@ Work: $O(n^2)$
 Span: $O(n\log n)$
 
 - **2c.**
+
 Yes, we used iterate to process left-to-right and preserve first-appearance order. We also used reduce(OR) to implement member(out, y) in parallel.
 
 - **3b.**
+
 Work: $W(n)=W(n-1)+1 \Rightarrow O(n)$
 
 Span: $S(n)=S(n-1)+1 \Rightarrow O(n)$
@@ -99,7 +103,7 @@ Whole algorith:
 
 $W(n)=O(n)$
 
-$S(\log n)$
+$S(n) = O(\log n)$
 
 
 - **3f.**
